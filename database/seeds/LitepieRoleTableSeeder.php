@@ -1,11 +1,8 @@
 <?php
 
-namespace Litepie;
-
-use DB;
 use Illuminate\Database\Seeder;
 
-class RoleTableSeeder extends Seeder
+class LitepieRoleTableSeeder extends Seeder
 {
     public function run()
     {
