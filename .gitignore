@@ -1,0 +1,34 @@
+# Dependencies
+/vendor/
+
+# IDE
+/.idea
+/.vscode
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage reports
+/coverage/
+/build/
+/.phpunit.result.cache
+
+# Environment files
+.env
+.env.*
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# Node modules (if any)
+node_modules/
+
+# Composer
+composer.lock
