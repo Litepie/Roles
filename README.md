@@ -53,11 +53,11 @@ return [
 
     'table_names' => [
         'roles' => 'roles',
-        'model_has_roles' => 'model_has_roles',
+        'model_has_roles' => 'user_roles',
     ],
 
     'column_names' => [
-        'role_pivot_key' => null,
+        'role_pivot_key' => 'role_id',
         'model_morph_key' => 'model_id',
     ],
 

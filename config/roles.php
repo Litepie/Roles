@@ -33,7 +33,7 @@ return [
          * basic default value but you may easily change it to any table you like.
          */
 
-        'model_has_roles' => 'model_has_roles',
+        'model_has_roles' => 'user_roles',
     ],
 
     'column_names' => [
@@ -42,7 +42,7 @@ return [
          * Defaults to 'role_id' if not set.
          */
 
-        'role_pivot_key' => null, //default 'role_id',
+        'role_pivot_key' => 'role_id',
 
         /*
          * Change this if you want to name the model morph key something different.

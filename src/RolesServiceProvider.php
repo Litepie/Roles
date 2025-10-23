@@ -8,8 +8,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\View\Compilers\BladeCompiler;
 use Litepie\Roles\Contracts\Role;
 use Litepie\Roles\Models\Role as RoleModel;
-use Litepie\Roles\Commands\CreateRole;
-use Litepie\Roles\Commands\ShowRoles;
+use Litepie\Roles\RoleRegistrar;
 
 class RolesServiceProvider extends ServiceProvider
 {
@@ -25,7 +24,6 @@ class RolesServiceProvider extends ServiceProvider
     {
         $this->registerPublishing();
         $this->registerMacroHelpers();
-        $this->registerCommands();
 
         $this->app->singleton(RoleRegistrar::class, function ($app) {
             return new RoleRegistrar($app->make('cache'));
@@ -53,16 +51,22 @@ class RolesServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../database/migrations/create_roles_tables.php.stub' => $this->getMigrationFileName('create_roles_tables.php'),
             ], 'roles-migrations');
+
+            $this->publishes([
+                __DIR__.'/../database/migrations/' => database_path('migrations'),
+            ], 'roles-migrations');
+
+            $this->publishes([
+                __DIR__.'/../database/seeders/' => database_path('seeders'),
+            ], 'roles-seeders');
+
+            $this->publishes([
+                __DIR__.'/../database/factories/' => database_path('factories'),
+            ], 'roles-factories');
         }
     }
 
-    protected function registerCommands()
-    {
-        $this->commands([
-            CreateRole::class,
-            ShowRoles::class,
-        ]);
-    }
+
 
     protected function registerBladeExtensions()
     {
